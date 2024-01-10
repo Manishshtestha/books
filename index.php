@@ -3,22 +3,22 @@ require_once "header.php";
 ?>
 
 
-<!-- <h1>Books</h1> -->
+<h1>Kitab</h1>
 
 <div class="row">
     <div class="col-md-12">
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://picsum.photos/id/237/200/300" style="height: 400px;" class="d-block w-100"
+                    <img src="https://fbcoverstreet.com/thumbnail/l81SkwITtiDicHA5qgpxp3e5Z31h2BUO8IaOqVOQqobzwEcOiqs13yUrc63r6kar.webp" style="height: 400px;" class="d-block w-100"
                         alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://picsum.photos/id/237/200/300" style="height: 400px;" class="d-block w-100"
+                    <img src="https://fbcoverstreet.com/thumbnail/u1SkkpYb9o8D8v3xw9zqIFJnef2ikg4MziiuOVx7PxWm7woEt4gwknfoqnGExzzb.webp" style="height: 400px;" class="d-block w-100"
                         alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://picsum.photos/id/237/200/300" style="height: 400px;" class="d-block w-100"
+                    <img src="https://fbcoverstreet.com/thumbnail/OLfyGxnaJWRrrqUPcVEsEOl7pXqyQe3mVI8oqWONhDuiEzWgPGgHuGU9ihJrGxKo.webp" style="height: 400px;" class="d-block w-100"
                         alt="...">
                 </div>
             </div>
