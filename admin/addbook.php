@@ -14,7 +14,7 @@ if (!empty($_POST)) {
     if (!empty($_FILES['image']['name'])) {
         $imageName = $_FILES['image']['name'];
         $imageTmpName = $_FILES['image']['tmp_name'];
-        if (move_uploaded_file($imageTmpName, "../uploads/".$imageName)) {
+        if (move_uploaded_file($imageTmpName, "../uploads/" . $imageName)) {
             $image = $imageName;
         } else {
             echo "Error uploading image";
@@ -29,6 +29,15 @@ if (!empty($_POST)) {
     }
 } else {
     echo "Please fill the form";
+}
+
+if (isset($_SESSION['success'])) {
+    echo '<div class="alert alert-success">' . $_SESSION['success'] . '</div>';
+    unset($_SESSION['success']);
+}
+if (isset($_SESSION['error'])) {
+    echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
+    unset($_SESSION['error']);
 }
 ?>
 <div>
