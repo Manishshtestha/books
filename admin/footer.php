@@ -1,7 +1,10 @@
+        </div>
+    </div>
 </div>
-</div>
-</div>
-<script src="../js/bootstrap.bundle.js"></script>
-</body>
 
+
+
+
+<script src="../js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

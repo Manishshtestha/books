@@ -1,53 +1,50 @@
 <?php
 require_once "header.php";
-require_once "connection.php";
 
-session_start();
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = md5($_POST['password']);
-
-    $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-    $result = mysqli_query($conn, $sql);
-
-    if ($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['user'] = $row;
-        header("Location: index.php");
-        exit();
-    } else {
-        $_SESSION['error'] = "Invalid email or password";
+if(!empty($_POST)){
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $sql="SELECT * FROM users WHERE email='$email' AND password='$password'";
+    $result=mysqli_query($conn,$sql);
+    $user=mysqli_num_rows($result);
+    if($user>0){
+        $user=mysqli_fetch_assoc($result);
+        $_SESSION['user']=$user;
+        $_SESSION['is_login']='true';
+        header("Location: admin/index.php");
+    }else{
+        $_SESSION['error']="Email or Password Incorrect";
     }
 }
 
 ?>
 
 <div class="row">
-    <div class="col-md-12 mt-4 mb-4">
+    <div class="col-md-12">
         <h1>Login</h1>
-        <?php
-        if (isset($_SESSION['error'])) {
-            echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
-            unset($_SESSION['error']);
-        }
-        ?>
     </div>
+    <?php if(isset($_SESSION['error'])) :?>
+        <div class="alert alert-danger">
+                <?php echo $_SESSION['error'] ?>
+            </div>
+    <?php 
+        unset($_SESSION['error']);
+        endif;
+    ?>
 </div>
-
 <div class="row">
     <div class="col-md-12">
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post">
             <div class="form-group mb-2">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control" required>
+                <input type="email" name="email" required id="email" class="form-control">
             </div>
             <div class="form-group mb-2">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control" required>
+                <input type="password" name="password" required id="password" class="form-control">
             </div>
             <div class="form-group mb-2">
-                <button type="submit" class="btn btn-success">Login</button>
+                <button class="btn btn-success">Login</button>
             </div>
         </form>
     </div>

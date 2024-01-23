@@ -1,14 +1,8 @@
 <?php
 
-    $hostname = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "bookstore";
-
-    $conn = mysqli_connect($hostname, $username, $password, $database);
-
-    if(!$conn){
-        die("Connection failed: " . mysqli_connect_error());
-    };
+$conn=mysqli_connect('localhost','root','','bookstore');
+if(!$conn){
+    die ("Could not connect to database");
+}
 
 ?>
