@@ -3,6 +3,33 @@ require_once "header.php";
 
 $catSql = "SELECT * FROM category";
 $catResult = mysqli_query($conn, $catSql);
+
+if (!empty($_POST)) {
+    $category_id = $_POST["category_id"];
+    $author_id = $loginUser['id'];
+    $title = $_POST["title"];
+    $price = $_POST["price"];
+    $page_number = $_POST["page_number"];
+    $image = '';
+    if (!empty($_FILES['image']['name'])) {
+        $imageName = $_FILES['image']['name'];
+        $imageTmpName = $_FILES['image']['tmp_name'];
+        if (move_uploaded_file($imageTmpName, "../uploads/".$imageName)) {
+            $image = $imageName;
+        } else {
+            echo "Error uploading image";
+        }
+    }
+    $sql = "INSERT INTO books (category_id,title,price,image,page_number) VALUES ('$category_id','$title','$price','$image','$page_number')";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        $_SESSION['success'] = "Book Added Successfully";
+    } else {
+        echo "Error inserting data";
+    }
+} else {
+    echo "Please fill the form";
+}
 ?>
 <div>
     <h1>Add Books</h1>
