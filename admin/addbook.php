@@ -20,7 +20,8 @@ if (!empty($_POST)) {
             echo "Error uploading image";
         }
     }
-    $sql = "INSERT INTO books (category_id,title,price,image,page_number) VALUES ('$category_id','$title','$price','$image','$page_number')";
+    $auth_id = $_SESSION['user']['id'];
+    $sql = "INSERT INTO books (category_id,	author_id,title,price,image,page_number) VALUES ('$category_id',$auth_id ,'$title','$price','$image','$page_number')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         $_SESSION['success'] = "Book Added Successfully";
