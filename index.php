@@ -67,7 +67,7 @@ $result = mysqli_query($conn, $sql);
             <p>Price:
               <?= $book['price'] ?>
             </p>
-            <p>Page Number:
+            <p>Page Counts:
               <?= $book['page_number'] ?>
             </p>
             <a href="#" class="btn btn-primary">Buy Now</a>
