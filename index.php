@@ -11,7 +11,7 @@ $catResult = mysqli_query($conn, $sqlCategory);
 $sql = "SELECT users.id,users.name,category.*,books.* FROM books
 JOIN users ON users.id=books.author_id
 JOIN category ON category.cid=books.category_id";
-$result=mysqli_query($conn,$sql);
+$result = mysqli_query($conn, $sql);
 
 ?>
 
@@ -22,7 +22,7 @@ $result=mysqli_query($conn,$sql);
       <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="https://picsum.photos/seed/picsum/200/300" style="height: 400px" class="d-block w-100" alt="...">
+            <img src="https://picsum.photos/200/300?random=1" style="height: 400px" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
             <img src="https://picsum.photos/200/300?grayscale" style="height: 400px" class="d-block w-100" alt="...">
@@ -46,7 +46,7 @@ $result=mysqli_query($conn,$sql);
   </div>
   <div class="row">
     <div class="col-md-12">
-      <h1>Books List</h1>
+      <h2>Books List</h2>
     </div>
   </div>
   <div class="row">
@@ -66,6 +66,9 @@ $result=mysqli_query($conn,$sql);
             </p>
             <p>Price:
               <?= $book['price'] ?>
+            </p>
+            <p>Page Number:
+              <?= $book['page_number'] ?>
             </p>
             <a href="#" class="btn btn-primary">Buy Now</a>
           </div>

@@ -63,7 +63,7 @@ if (!empty($_GET['bid'])) {
                             <?= $book['page_number'] ?>
                         </td>
                         <td>
-                            <a href="" class="btn btn-success">Edit</a>
+                            <a href="editBook.php?bid=<?=$book['bid']?>" class="btn btn-success">Edit</a>
                             <a href="showBook.php?bid=<?php echo $book["bid"]; ?>" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
