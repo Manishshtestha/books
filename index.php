@@ -53,7 +53,7 @@ $result=mysqli_query($conn,$sql);
     <?php foreach ($result as $book): ?>
       <div class="col-md-3">
         <div class="card">
-          <img src="uploads/<?= $book['image'] ?>" width="18rem" height="250px" class="card-img-top" alt="...">
+          <img src="uploads/<?= $book['image'] ?>" style="width:100%;height:380px" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">
               <?= $book['title'] ?>

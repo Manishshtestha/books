@@ -21,7 +21,7 @@ if (!empty($_POST)) {
         }
     }
     $auth_id = $_SESSION['user']['id'];
-    $sql = "INSERT INTO books (category_id,	author_id,title,price,image,page_number) VALUES ('$category_id',$auth_id ,'$title','$price','$image','$page_number')";
+    $sql = "INSERT INTO books (category_id,	author_id,title,price,image,page_number) VALUES ('$category_id','$auth_id' ,'$title','$price','$image','$page_number')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         $_SESSION['success'] = "Book Added Successfully";
