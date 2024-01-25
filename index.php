@@ -8,8 +8,10 @@ require_once "connection.php";
 $sqlCategory = "SELECT * FROM category";
 $catResult = mysqli_query($conn, $sqlCategory);
 
-$sqlBooks = "SELECT * FROM books";
-$result = mysqli_query($conn, $sqlBooks);
+$sql = "SELECT users.id,users.name,category.*,books.* FROM books
+JOIN users ON users.id=books.author_id
+JOIN category ON category.cid=books.category_id";
+$result=mysqli_query($conn,$sql);
 
 ?>
 
@@ -50,16 +52,22 @@ $result = mysqli_query($conn, $sqlBooks);
   <div class="row">
     <?php foreach ($result as $book): ?>
       <div class="col-md-3">
-        <div class="card" >
-          <img src="uploads/<?= $book['image'] ?>" style="width:100%; height:35vh;" class="card-img-top" alt="...">
+        <div class="card">
+          <img src="uploads/<?= $book['image'] ?>" width="18rem" height="250px" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">
               <?= $book['title'] ?>
             </h5>
+            <p class="card-text">Author:
+              <?= $book['name'] ?>
+            </p>
+            <p class="card-text">Category:
+              <?= $book['cat_name'] ?>
+            </p>
             <p>Price:
               <?= $book['price'] ?>
             </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="#" class="btn btn-primary">Buy Now</a>
           </div>
         </div>
       </div>
